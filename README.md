@@ -1,4 +1,4 @@
-# K8S-Finall
+# K8S-Final
 ## Overview
 This project deploys a secure WordPress application backed by a database on a Kubernetes cluster using **Helm**, and includes a comprehensive monitoring stack via **Prometheus and Grafana** to track cluster resources and container uptimes.
 
@@ -15,7 +15,7 @@ This project deploys a secure WordPress application backed by a database on a Ku
 
 ## Deployment Steps
 
-### 1. Authenticate and Configure AWS ECR Secret
+# 1. Authenticate and Configure AWS ECR Secret
 If your container images are hosted on a private AWS ECR registry, ensure your cluster has the proper image pull secret:
 ```bash
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <your-ecr-registry>
@@ -26,30 +26,42 @@ kubectl create secret docker-registry ecr-secret \
   --dry-run=client -o yaml | kubectl apply -f -
 
 ```
-2. Deploy WordPress Application (Kubernetes Manifests)
+# 2. Deploy WordPress Application (Kubernetes Manifests)
 
 Deploy the WordPress application and database using the direct Kubernetes manifest files located in your project directory:
 
-Bash
-kubectl apply -f .
-3. Deploy the Monitoring Stack (Helm)
-Install Prometheus and Grafana using the community Helm chart:
+```bash
 
-Bash
+kubectl apply -f
+```
+
+
+3. Deploy the Monitoring Stack (Helm)
+# Install Prometheus and Grafana using the community Helm chart:
+
+```bash
+
 helm repo add prometheus-community [https://prometheus-community.github.io/helm-charts](https://prometheus-community.github.io/helm-charts)
 helm repo update
 helm install kube-prom-stack prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace --timeout 10m --atomic
-Accessing Services
+```
+
+## Accessing Services
 To access your services via your cloud instance:
 
-Access WordPress:
+# Access WordPress:
 
-Bash
+```bash
+
 kubectl port-forward svc/wordpress-service 8080:80 --address 0.0.0.0
+```
+
 Open your browser at: http://<your-server-ip>:8080
 
-Access Grafana Dashboard:
+# Access Grafana Dashboard:
+```bash
 
-Bash
 kubectl --namespace monitoring port-forward svc/kube-prom-stack-grafana 3000:80 --address 0.0.0.0
+```
+
 Open your browser at: http://<your-server-ip>:3000
