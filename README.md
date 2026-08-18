@@ -11,6 +11,7 @@ This project deploys a secure WordPress application backed by a database on a Ku
 - A running Kubernetes cluster (e.g., Minikube or AWS EC2 K8s node)
 - `minikube` configured and connected to the cluster
 - `helm` package manager installed
+-  NGINX Ingress Controller installed
 - AWS CLI configured (if pulling images from AWS ECR)
 
 ## Deployment Steps
