@@ -33,7 +33,7 @@ Deploy the WordPress application and database using the direct Kubernetes manife
 
 ```bash
 
-kubectl apply -f
+kubectl apply -f .
 ```
 
 
