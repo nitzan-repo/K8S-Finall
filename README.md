@@ -9,13 +9,14 @@ This project deploys a secure WordPress application backed by a database on a Ku
 
 ## Prerequisites
 - A running Kubernetes cluster (e.g., Minikube or AWS EC2 K8s node)
-- `kubectl` configured and connected to the cluster
+- `minikube` configured and connected to the cluster
 - `helm` package manager installed
 - AWS CLI configured (if pulling images from AWS ECR)
 
 ## Deployment Steps
 
 ### 1. Authenticate and Configure AWS ECR Secret
+Before running the deployment, you must ensure your AWS credentials are configured on your machine or server so that the AWS CLI can communicate with your account.
 If your container images are hosted on a private AWS ECR registry, ensure your cluster has the proper image pull secret:
 ```bash
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <your-ecr-registry>
