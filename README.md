@@ -36,8 +36,8 @@ kubectl apply -f
 ```
 
 
-3. Deploy the Monitoring Stack (Helm)
-# Install Prometheus and Grafana using the community Helm chart:
+# 3. Deploy the Monitoring Stack (Helm)
+ Install Prometheus and Grafana using the community Helm chart:
 
 ```bash
 
