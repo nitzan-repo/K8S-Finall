@@ -24,7 +24,10 @@ kubectl create secret docker-registry ecr-secret \
   --docker-username=AWS \
   --docker-password=$(aws ecr get-login-password --region us-east-1) \
   --dry-run=client -o yaml | kubectl apply -f -
+
+```
 2. Deploy WordPress Application (Kubernetes Manifests)
+
 Deploy the WordPress application and database using the direct Kubernetes manifest files located in your project directory:
 
 Bash
