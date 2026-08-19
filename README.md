@@ -58,7 +58,7 @@ To access your services via your cloud instance:
 kubectl port-forward svc/wordpress-service 8080:80 --address 0.0.0.0
 ```
 
-Open your browser at: http://<your-server-ip>:8080
+Open your browser at: http://public-ip:8080
 
 ### Access Grafana Dashboard:
 ```bash
@@ -66,4 +66,4 @@ Open your browser at: http://<your-server-ip>:8080
 kubectl --namespace monitoring port-forward svc/kube-prom-stack-grafana 3000:80 --address 0.0.0.0
 ```
 
-Open your browser at: http://<your-server-ip>:3000
+Open your browser at: http://public-ip:3000
